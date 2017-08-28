@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="60dp"
     android:weightSum="100"
+    android:descendantFocusability="blocksDescendants"
     android:background="#F1F1F1">
     <ImageView
         android:id="@+id/imgPic"

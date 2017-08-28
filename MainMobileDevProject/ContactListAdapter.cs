@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Graphics;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MainMobileDevProject
 {
@@ -54,7 +56,7 @@ namespace MainMobileDevProject
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View row = convertView;
-
+            //row.notif
             if (row == null)
             {
                 row = LayoutInflater.From(mContext).Inflate(mLayout, parent, false);
@@ -64,6 +66,7 @@ namespace MainMobileDevProject
             row.FindViewById<TextView>(Resource.Id.txtNumber).Text = mContacts[position].Number;
 
             ImageView pic = row.FindViewById<ImageView>(Resource.Id.imgPic);
+            row.Clickable = true;
 
             if (mContacts[position].Image != null)
             {
@@ -78,17 +81,84 @@ namespace MainMobileDevProject
                 //pic.SetImageBitmap(BitmapFactory.DecodeByteArray(mContacts[position].Image, 0, mContacts[position].Image.Length));
             }
 
-            
+            //var imageButton = row.FindViewById<ImageView>(Resource.Id.imgPic);
+            //imageButton.Focusable = false;
+            //imageButton.FocusableInTouchMode = false;
+            //imageButton.Clickable = true;
+
+            var removeButton = row.FindViewById<ImageButton>(Resource.Id.btnDeleteAlbum);
+            removeButton.Focusable = false;
+            removeButton.FocusableInTouchMode = false;
+            removeButton.Clickable = true;
+
+            //imageButton.Click += (sender, args) =>
+            //{
+            //    System.Diagnostics.Debug.Write("myBitmap row id :AAAAAAAAAAAAAAAAAAAA ");
+            //    Console.WriteLine("ImageButton {0} clicked", position);
+                
+            //};
+
+            removeButton.Click += (sender, args) =>
+            {
+                System.Diagnostics.Debug.Write("myBitmap row id :AAAAAAAAAAAAAAAAAAAA ");
+                Console.WriteLine("RemoveButton {0} clicked", position);
+                
+            };
+
+
 
             //pic.Click -= pic_Click;
-            //pic.Click += pic_Click;
+            pic.Click += (object sender, EventArgs e) =>
+            {
+                MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3307;database=ofsligodb;User Id=ofoley1;Password=pinecone;charset=utf8");
+
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                        System.Diagnostics.Debug.WriteLine("CONNECTION OPEN*****: ");
+
+                                                
+
+                        MySqlCommand Readcmd = new MySqlCommand("DELETE FROM tblUserAlbumPhoto WHERE UserID = '" + 1 + "' AND " +
+                            "AlbumID = '" + 1 + "' and ID = '" + position + "'");
+
+
+                        Readcmd.Connection = con;
+                        Readcmd.ExecuteNonQuery();
+
+                        System.Diagnostics.Debug.WriteLine("DELETE SHOULD HAVE HAPPENED*****: ");
+
+
+                    }
+
+                }
+
+                catch (MySqlException ex)
+                {
+                    //mTxtImgChoiceInfo.Text = ex.ToString();
+                }
+                finally
+                {
+                    con.Close();
+                    System.Diagnostics.Debug.WriteLine("CONN CLOSED*****: ");
+                }
+            };
+
             return row;
         }
+
+        
 
         void pic_Click(object sender, EventArgs e)
         {
             //Picture has been clicked
-            mActionPicSelected.Invoke((ImageView)sender);
+           
+            System.Diagnostics.Debug.Write("myBitmap row id :AAAAAAAAAAAAAAAAAAAA " );            
+
+            
+
         }
     }
 }

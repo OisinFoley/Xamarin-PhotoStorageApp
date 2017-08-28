@@ -16,13 +16,14 @@ using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
 using Android.Util;
 using static Android.Widget.AdapterView;
+using Android.Support.V7.App;
 
 namespace MainMobileDevProject
 {
     [Activity(Label = "Sliding Tab Layout", MainLauncher = true, Icon = "@drawable/xs")]
     //[Activity(Label = "Sliding Tab Layout", Icon = "@drawable/xs")]
 
-    public class HomeNoScrollView: Activity
+    public class HomeNoScrollView: AppCompatActivity
     {
         private ListView mListView;
         private BaseAdapter<Contact> mAdapter;
@@ -67,7 +68,7 @@ namespace MainMobileDevProject
 
             
 
-
+            //mListView.chil
 
 
             mListView.ItemClick += lv_ItemClick;
@@ -79,12 +80,10 @@ namespace MainMobileDevProject
 
 
                 mListView.Adapter = mAdapter;
-
+                //mListView.NotifyDataSetChanged();
+                
             //mListView.ItemClick += MListView_ItemClick;
 
-            
-            //mListView.i
-            //mListView.on
 
             mListView.ItemSelected += (sender, e) =>
             {
@@ -106,7 +105,7 @@ namespace MainMobileDevProject
                 //tv1.Text = str;
             };
 
-
+            mAdapter.NotifyDataSetChanged();
 
 
 
@@ -123,6 +122,7 @@ namespace MainMobileDevProject
                 //addCameraPhoto.mAddCameraPhotoComplete += AddCameraPhoto_mAddCameraPhotoComplete;
                 addCameraPhoto.mAddCameraPhotoComplete += UploadCameraPhoto;
 
+                
 
 
                 //StartActivity(new Intent(this, typeof(dialogue_AddCameraPhoto)));
@@ -208,6 +208,7 @@ namespace MainMobileDevProject
             {
                 con.Close();
                 System.Diagnostics.Debug.WriteLine("CONN CLOSED*****: ");
+                mAdapter.NotifyDataSetChanged();
             }
 
         }

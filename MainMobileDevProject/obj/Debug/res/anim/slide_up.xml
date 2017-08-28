@@ -1,0 +1,1 @@
+<!--coming from 100% of the y plain ie - bottom to the top (of the dialog rather than our main view)--><translate android:fromYDelta="100%p" android:toYDelta="0" android:duration="500" xmlns:android="http://schemas.android.com/apk/res/android" />
