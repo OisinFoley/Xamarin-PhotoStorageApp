@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:visibility="visible"
+            android:id="@+id/listView"
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true"
+            android:smoothScrollbar="true"
+            android:clickable="true" />
+        <Button
+            android:text="Button"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAdd" />
+        <Button
+            android:id="@+id/myButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/openCamera" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="fill_parent"
+            android:layout_height="300.0dp"
+            android:id="@+id/imageView1"
+            android:adjustViewBounds="true" />
+    </LinearLayout>
+</ScrollView>

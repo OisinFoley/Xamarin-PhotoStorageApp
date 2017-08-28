@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:weightSum="100"
+    android:padding="5dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/background_light"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <com.facebook.login.widget.LoginButton
+            android:text="Login / Register with Facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnFbLoginMain"
+            android:layout_weight="5"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+        <com.facebook.login.widget.ProfilePictureView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnFbLoginMain"
+            android:id="@+id/profilePicMain"
+            android:minHeight="100dp" />
+        <Button
+            android:id="@+id/btnGetEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Email"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#333"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp" />
+        <TextView
+            android:text="Create an Account"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_weight="8"
+            android:layout_height="0dp"
+            android:textColor="#368deb"
+            android:id="@+id/txtCreateAccount"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="25sp" />
+    <!-- height is 0dp because as we give it a weight of 20, and it's nested inside a linearlayout with weightsum of 100,
+       we're saying that we always want the textview to take up 20% of the linearlayout's space-->
+        <Button
+            android:text="Sign In"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:id="@+id/btnSignIn"
+            android:background="@drawable/ButtonSignInStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="15sp" />
+        <TextView
+            android:text="OR"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:textColor="#0c0cd6"
+            android:id="@+id/txtOr"
+            android:textSize="20sp"
+            android:gravity="center" />
+        <Button
+            android:text="Sign Up with Email"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:id="@+id/btnSignUp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/mail4_small"
+            android:background="@drawable/signupstyle" />
+        <Button
+            android:text="Choose image..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_below="@id/btnSignUp"
+            android:id="@+id/btnOpenGallery"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:visibility="visible" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar1"
+                android:layout_centerInParent="true"
+                android:background="@drawable/progressbarstyle"
+                android:indeterminate="true"
+                android:visibility="invisible" />
+        </RelativeLayout>
+        <Button
+            android:text="Convert image to base 64"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnConverttoBase64" />
+        <TextView
+            android:text="asdfghjk"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:textColor="#0c0cd6"
+            android:id="@+id/txtViewImgBase64"
+            android:textSize="5sp" />
+        <Button
+            android:text="Convert XS image to base 64"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:id="@+id/btnConverttoImg" />
+        <TextView
+            android:text="Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtImgPath"
+            android:textColor="@android:color/holo_purple" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgUploadedPhoto"
+            android:layout_marginBottom="20dp" />
+        <TableLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tblBaseStrings">
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:minWidth="25px"
+                android:minHeight="25px">
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:minWidth="25px"
+                android:minHeight="25px">
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:minWidth="25px"
+                android:minHeight="25px">
+            </TableRow>
+        </TableLayout>
+        <TextView
+            android:text="LATER: try email and uname in same tbx(if tbx contains '@', then check email in db instead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tblBaseStrings"
+            android:id="@+id/txtTest"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>
